@@ -1,0 +1,35 @@
+public class Calendar {
+    public static void main(String[] args) {
+            int days = 30;
+            int firstSundayInTheMonth = 6;
+
+            printCalendarBorder (days, firstSundayInTheMonth);
+        }
+    public static void printCalendarBorder(int days, int firstSundayInTheMonth) {
+        System.out.println(" Sun     Mon     Tue    Wed   Thu    Fri    Sat");
+        System.out.println("+------+------+------+------+------+------+------+");
+
+        int FirstDayOfMonth = 1;
+        int Weekday = firstSundayInTheMonth;
+        // NOT MY CODE AFTER WHILE WAS GIVEN IN COMP 170
+        // could not figure out how to place the numbers into the code
+        while (FirstDayOfMonth <= days) {
+            for (int i = 1; i <= 7; i++) {
+                System.out.print(padded(Weekday <= days ? Weekday : 0, 5));
+                FirstDayOfMonth++;
+                Weekday = (Weekday % 7) + 1; // Adjust dayOfWeek without if statements
+            }
+            System.out.println();
+        }
+
+        System.out.println("+------+------+------+------+------+------+------+");
+    }
+    public static  String padded(int n, int width) {
+        String s = "" + n;
+        for (int i = s.length(); i < width; i++) {
+            s = " " + s;
+        }
+        return s;
+    }
+    }
+
